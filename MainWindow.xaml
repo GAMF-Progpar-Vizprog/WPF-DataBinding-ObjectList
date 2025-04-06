@@ -1,0 +1,50 @@
+﻿<Window x:Class="WPF_DataBinding_ObjectList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_DataBinding_ObjectList"
+        mc:Ignorable="d"
+        Title="Students" Height="227" Width="493">
+	<!-- Here we just indicate that there will be a data binding, the data source is given in the C# code -->
+	<Grid Name="grGrid"  DataContext="{Binding}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150" />
+			<ColumnDefinition Width="150*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="30" />
+			
+		</Grid.RowDefinitions>
+		<Label Grid.Row="0" Grid.Column="0">Last name</Label>
+		<TextBlock Text="{Binding Path=LastName}" Name="tbLastName"  
+              Grid.Row="0" Grid.Column="1" />
+		<Label Grid.Row="1" Grid.Column="0">First name</Label>
+		<TextBlock Text="{Binding Path=FirstName}" Name="tbFirstName"  
+              Grid.Row="1" Grid.Column="1" />
+		<Label Grid.Row="2" Grid.Column="0">Neptun</Label>
+		<TextBlock Text="{Binding Path=Neptun}" Name="tbNeptun" 
+              Grid.Row="2" Grid.Column="1"/>
+		<Label Grid.Row="3" Grid.Column="0">e-mail</Label>
+		<TextBlock Text="{Binding Path=email}" Name="tbemail" 
+              Grid.Row="3" Grid.Column="1"/>
+		<Label Grid.Row="4" Grid.Column="0">Overall average</Label>
+		<TextBlock Text="{Binding Path=OverallAverage}" 
+              Name="tbOverallAverage" Grid.Row="4" 
+              Grid.Column="1"/>
+		<StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" >
+			<Button Name="btPrevious" Width="50" Click="btPrevious_Click">&lt;</Button>
+			<Button Name="btNext" Width="50" Click="btNext_Click">&gt;</Button>
+			<Button Name="btLowestAverage" Width="95" 
+             Click="btLowestAverage_Click" 
+             Margin="30,0,0,0">Lowest average</Button>
+			<Button Name="btHighestAverage" Width="95" 
+             Click="btHighestAverage_Click">Highest average</Button>
+		</StackPanel>
+	</Grid>
+</Window>
